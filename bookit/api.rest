@@ -1,0 +1,125 @@
+POST http://localhost:3000/api/users
+Content-Type: application/json
+
+{
+    "email" : "elboubs1705@gmail.com",
+    "famillyName" : "Diallo",
+    "givenName" : "Boubacar"
+}
+
+###
+
+POST http://localhost:3000/api/companies
+Content-Type: application/json
+
+{
+    "email" : "elboubs97@gmail.com",
+    "companyName" : "boudi tech"
+}
+
+###
+
+GET http://localhost:3000/api/companies?=elboubs97@gmail.com
+
+###
+
+DELETE http://localhost:3000/api/companies
+Content-Type: application/json
+
+{
+    "id" : "cm8d3d0bu0000tuo0xt5a8b1x"
+}
+
+###
+
+PATCH http://localhost:3000/api/companies
+Content-Type: application/json
+
+{ 
+    "id" : "cm88w3nv70000tuyooaytewx7",
+    "creatorEmail" : "elboubs97@gmail.com", 
+    "employeeEmail" : "dev1@gmail.com", 
+    "action" : "DELETE" 
+}
+
+###
+
+GET http://localhost:3000/api/employees?companyId=cm88w3nv70000tuyooaytewx7
+
+###
+
+POST http://localhost:3000/api/rooms
+Content-Type: application/json
+
+{
+   "action" : "SAVE_DATA", 
+   "name" : "room1", 
+   "capacity" : 6 , 
+   "description" : "meeting" , 
+   "companyId" : "cm88w3nv70000tuyooaytewx7"
+}
+
+###
+
+POST http://localhost:3000/api/rooms
+Content-Type: application/json
+
+{
+   "action" : "SAVE_IMAGE", 
+   "imageUrl" : "image.jpg" , 
+   "roomId" : "cm8rf2a2r0000tups0axxw08u"
+
+}
+
+###
+
+GET http://localhost:3000/api/rooms?companyId=cm88w3nv70000tuyooaytewx7
+
+###
+
+DELETE  http://localhost:3000/api/rooms
+Content-Type: application/json
+
+{
+   "roomId" : "cm8rf2a2r0000tups0axxw08u"
+
+}
+
+###
+
+POST http://localhost:3000/api/reservations 
+Content-Type: application/json
+
+{
+    "email": "elboubs97@gmail.com", 
+    "roomId": "cm8rf2a2r0000tups0axxw08u", 
+    "reservationDate": "25/04/2025", 
+    "timeSlots": [
+        "09:00 - 10:30", 
+        "12:00 - 12:30"
+    ]
+
+}
+
+###
+POST http://localhost:3000/api/disponibilities
+
+
+{
+    "roomId": "cm8rf2a2r0000tups0axxw08u", 
+    "reservationDate": "25/04/2025", 
+}
+
+###
+
+GET http://localhost:3000/api/reservations?email=elboubs97@gmail.com
+
+###
+
+DELETE  http://localhost:3000/api/reservations
+Content-Type: application/json
+
+{
+   "id" : "cm8rht9eg0004tupsnbmyu0jl"
+
+}
